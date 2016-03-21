@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-3-19 17:13:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.ogame.entities.resource" table="RESOURCE">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="uid" type="int">
+            <column name="UID" />
+        </property>
+        <property name="metal" type="int">
+            <column name="METAL" />
+        </property>
+        <property name="beton" type="int">
+            <column name="BETON" />
+        </property>
+        <property name="fuel" type="int">
+            <column name="FUEL" />
+        </property>
+        <property name="metalAdd" type="int">
+            <column name="METALADD" />
+        </property>
+        <property name="betonAdd" type="int">
+            <column name="BETONADD" />
+        </property>
+        <property name="fuelAdd" type="int">
+            <column name="FUELADD" />
+        </property>
+        <property name="time" type="long">
+            <column name="TIME" />
+        </property>
+    </class>
+</hibernate-mapping>
