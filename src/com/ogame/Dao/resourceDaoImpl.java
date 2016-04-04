@@ -18,10 +18,16 @@ public class resourceDaoImpl implements resourceDao {
 	public boolean add(int uid) {
 		resource resource = new resource();
 		Date date = new Date();
-		resource.setTime(date.getTime()/1000);
-		resource.setUid(uid);
-		sessionFactory.getCurrentSession().save(resource);
-		return (resource.getId()>0);
+//		resource.setTime(date.getTime()/1000);
+//		resource.setUid(uid);
+//		sessionFactory.getCurrentSession().save(resource);
+//		return (resource.getId()>0);
+		String sql = "insert into resource(uid,time) values (?,?)";
+		int insert = sessionFactory.getCurrentSession().createSQLQuery(sql).setInteger(0, uid).setLong(1, date.getTime()/1000).executeUpdate();
+		if(insert>0)
+			return true;
+		else
+			return false;
 	}
 
 	@Override
@@ -51,6 +57,16 @@ public class resourceDaoImpl implements resourceDao {
 	public boolean updateAdd(int id,String type) {
 		String hql = "update resource set ? = ?*2 where id = ?";
 		int update = sessionFactory.getCurrentSession().createQuery(hql).setString(0, type).setString(1, type).setInteger(2, id).executeUpdate();
+		if(update>0)
+			return true;
+		else
+			return false;
+	}
+	
+	@Override
+	public boolean updateNew(int id,String type,int add) {
+		String hql = "update resource set ? = ? where id = ?";
+		int update = sessionFactory.getCurrentSession().createQuery(hql).setString(0, type).setInteger(1, add).setInteger(2, id).executeUpdate();
 		if(update>0)
 			return true;
 		else

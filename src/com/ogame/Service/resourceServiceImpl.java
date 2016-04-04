@@ -48,4 +48,10 @@ public class resourceServiceImpl implements resourceService {
 		// TODO Auto-generated method stub
 		return resourceDao.add(uid);
 	}
+	
+	@Override
+	public boolean updateResourceNew(int id, String type, int add) {
+		// TODO Auto-generated method stub
+		return resourceDao.updateNew(id, type, add);
+	}
 }

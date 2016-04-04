@@ -9,4 +9,5 @@ public interface resourceService {
 	public boolean updateResource(int id);
 	public boolean updateResourceLevelUp(int id,String type);
 	public boolean add(int uid);
+	public boolean updateResourceNew(int id,String type,int add);
 }

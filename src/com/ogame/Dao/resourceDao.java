@@ -11,4 +11,5 @@ public interface resourceDao {
 	public boolean updateAdd(int id,String type);
 	public resource getById(int id);
 	public boolean sub(int id,int metal,int beton,int fuel);
+	boolean updateNew(int id, String type, int add);
 }

@@ -29,12 +29,19 @@ public class test {
 
 	@Test
 	public void ifHaveUser() {
-		
-		String hql="from users u where u.username = 'test' and u.password = '123456'";
-		Query query = sessionFactory.getCurrentSession().createQuery(hql);
-		List<users> user = query.list();
-		System.out.println(user);
-		System.out.println(user.get(0));
+		String sql = "insert into universe(universe,location) values";
+		for(int i=1;i<=300;i++)
+			for(int j=1;j<=15;j++)
+			{
+				if(j==1&&i==1){
+					sql += "("+i+","+j+")";
+				}
+				else{
+					sql += ",("+i+","+j+")";
+				}
+			}
+		System.out.println(sql);
+		sessionFactory.getCurrentSession().createSQLQuery(sql);
 	}
 	
 
